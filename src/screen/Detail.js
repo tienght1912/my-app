@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { AirbnbRating } from 'react-native-elements';
 
-export default function Detail() {
+export default function Detail({navigation}) {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Detail</Text>
@@ -13,7 +13,7 @@ export default function Detail() {
                 defaultRating={5}
                 size={16}
             />
-
+            <Text>{navigation.getParam('nameFood')}</Text>
             
         </View>
     )

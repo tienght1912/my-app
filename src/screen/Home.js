@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
     StyleSheet,
@@ -7,12 +8,12 @@ import {
     FlatList,
     TextInput,
     ScrollView,
+    TouchableOpacity
 } from 'react-native';
 import IconNoti from 'react-native-vector-icons/Ionicons';
 import IconFilter from 'react-native-vector-icons/FontAwesome';
 import IconAddress from 'react-native-vector-icons/MaterialIcons';
 import Dot from 'react-native-vector-icons/Entypo';
-
 const DATA = [
     {
         id: '1',
@@ -20,10 +21,10 @@ const DATA = [
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
         cost: 50,
-        unit:"$",
-        rating:5,
-        amount:20,
-        fav:true,
+        unit: "$",
+        rating: 5,
+        amount: 20,
+        fav: true,
         address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
@@ -32,10 +33,10 @@ const DATA = [
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
         cost: 50,
-        unit:"$",
-        rating:1,
-        amount:0,
-        fav:true,
+        unit: "$",
+        rating: 1,
+        amount: 0,
+        fav: true,
         address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
@@ -44,10 +45,10 @@ const DATA = [
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
         cost: 50,
-        unit:"$",
-        rating:5,
-        amount:20,
-        fav:true,
+        unit: "$",
+        rating: 5,
+        amount: 20,
+        fav: true,
         address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
@@ -56,10 +57,10 @@ const DATA = [
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
         cost: 50,
-        unit:"$",
-        rating:5,
-        amount:30,
-        fav:true,
+        unit: "$",
+        rating: 5,
+        amount: 30,
+        fav: true,
         address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
 
@@ -73,14 +74,17 @@ const renderItemH = ({ item }) => (
     </View>
 );
 const renderItemV = ({ item }) => (
-    <View style={styles.itemV}>
+    <TouchableOpacity
+        style={styles.itemV}
+        onPress={() => navigation.navigate('Detail', item)}
+    >
         <Image source={{ uri: item.image }} style={styles.imgItem} />
         <View style={styles.boxV}>
             <Text style={styles.nameFoodV}>{item.nameFood}</Text>
             <Text style={styles.fromFoodV}>{item.fromFood}</Text>
             <Text style={styles.cost}>{item.cost}{item.unit}</Text>
             <Text style={styles.address}>
-                <IconAddress 
+                <IconAddress
                     name="place"
                     size={8}
                     color="#a5b1c2"
@@ -88,16 +92,16 @@ const renderItemV = ({ item }) => (
                 {item.address}
             </Text>
         </View>
-        <Dot 
+        <Dot
             name="dot-single"
             size={42}
-            color={item.amount===0?'red':'green'}
+            color={item.amount === 0 ? 'red' : 'green'}
             style={styles.dotstatus}
         />
-    </View>
+    </TouchableOpacity>
 );
 
-export default function Home() {
+export default function Home({ navigation }) {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -122,8 +126,7 @@ export default function Home() {
                         data={DATA}
                         renderItem={renderItemH}
                         horizontal
-                        // keyExtractor={item => item.id}
-                        keyExtractor={({id}, index) => id}
+                    // keyExtractor={item => item.id}
                     />
                 </View>
                 <View style={styles.line}></View>
@@ -147,7 +150,6 @@ export default function Home() {
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     container: {
         // flexDirection:"row",
@@ -219,7 +221,7 @@ const styles = StyleSheet.create({
     boxV: {
         marginLeft: 12,
         paddingVertical: 8,
-        width:160
+        width: 160
     },
     nameFoodV: {
         fontSize: 18,
@@ -232,17 +234,17 @@ const styles = StyleSheet.create({
         opacity: 0.8,
         marginTop: 4,
     },
-    cost:{
-        color:"#900",
-        fontSize:16,
-        marginTop:4
-    },  
-    address:{
-        color:"#a5b1c2",
+    cost: {
+        color: "#900",
+        fontSize: 16,
+        marginTop: 4
     },
-    dotstatus:{
-        alignSelf:"flex-end",
-        marginBottom:100
+    address: {
+        color: "#a5b1c2",
+    },
+    dotstatus: {
+        alignSelf: "flex-end",
+        marginBottom: 100
     },
     line: {
         backgroundColor: "#a5b1c2",
