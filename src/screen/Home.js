@@ -14,7 +14,6 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image/>
                 <TextInput
                     style={styles.input}
                     placeholder={'Search favorite food'}
@@ -44,8 +43,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         width:"100%",
         height:70,
-        // backgroundColor:"#a5b1c2",
-        justifyContent:"flex-end"
+        backgroundColor:"#a5b1c2",
+        alignItems:"center",
     },
     input:{
         borderRadius:15,
@@ -54,10 +53,10 @@ const styles = StyleSheet.create({
         fontSize:8,
         padding:8,
         width:150,
-        justifyContent:"flex-end",
-        marginTop:22
+        alignSelf:"flex-end",
     },
     icon:{
-        marginTop:22
+        alignSelf:"flex-end",
+        backgroundColor:"#fff"
     },
 })
