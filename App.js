@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/screen/Home';
 import Account from './src/screen/Account';
@@ -10,6 +11,7 @@ import IconHome from 'react-native-vector-icons/Entypo';
 import IconShopping from 'react-native-vector-icons/Entypo';
 import IconAccount from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconFavo from 'react-native-vector-icons/MaterialIcons';
+
 
 const Tab = createBottomTabNavigator();
 

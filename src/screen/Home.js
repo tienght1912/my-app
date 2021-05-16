@@ -12,6 +12,8 @@ import IconNoti from 'react-native-vector-icons/Ionicons';
 import IconFilter from 'react-native-vector-icons/FontAwesome';
 import IconAddress from 'react-native-vector-icons/MaterialIcons';
 import Dot from 'react-native-vector-icons/Entypo';
+import
+
 const DATA = [
     {
         id: '1',
@@ -95,7 +97,8 @@ const renderItemV = ({ item }) => (
         />
     </View>
 );
-export default function Home() {
+
+export default function Home({navigation}) {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -111,6 +114,7 @@ export default function Home() {
                         size={22}
                         color="#000"
                         style={styles.icon}
+                        onPress={() => navigation.navigate('Detail')}
                     />
                 </View>
                 <View style={styles.article}>
@@ -121,7 +125,8 @@ export default function Home() {
                         data={DATA}
                         renderItem={renderItemH}
                         horizontal
-                    // keyExtractor={item => item.id}
+                        // keyExtractor={item => item.id}
+                        keyExtractor={({id}, index) => id}
                     />
                 </View>
                 <View style={styles.line}></View>

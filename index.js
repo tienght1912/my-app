@@ -8,4 +8,4 @@ import Detail from './src/screen/Detail';
 import {name as appName} from './app.json';
 
 
-AppRegistry.registerComponent(appName, () => Detail);
+AppRegistry.registerComponent(appName, () => App);
