@@ -8,11 +8,12 @@ import {
     TextInput,
     
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Home() {
     return (
         <View style={styles.container}>
-            
+            <Icon name="fastfood" size={30} color="#900" />
         </View>
     )
 }
