@@ -4,16 +4,15 @@ import {
     Text, 
     View, 
     Image, 
+    FlatList,
+    TextInput,
+    
 } from 'react-native';
 
 export default function Home() {
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.imgHome}
-                source={require('../asset/427735.png')}
-            />
-            <Text style={styles.title}>Tiếng HT</Text>
+            
         </View>
     )
 }
