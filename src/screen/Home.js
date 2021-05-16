@@ -22,7 +22,7 @@ export default function Home() {
                 <IconNoti
                     name="notifications" 
                     size={22}
-                    color="#4b6584"
+                    color="#000"
                     style={styles.icon}
                 />
             </View>
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     },
     input:{
         borderRadius:15,
-        backgroundColor:"#4b6584",
-        height:24,
-        fontSize:8,
+        backgroundColor:"#000",
+        height:36,
+        fontSize:12,
         padding:8,
-        width:150,
+        width:240,
         marginRight:8
     },
     icon:{
