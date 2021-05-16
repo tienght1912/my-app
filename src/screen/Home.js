@@ -18,40 +18,48 @@ const DATA = [
         nameFood: 'Spaghetti',
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
-        cost: 130,
-        status: true,
+        cost: 50,
+        unit:"$",
+        rating:5,
         amount:20,
-        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
+        fav:true,
+        address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
         id: '2',
         nameFood: 'Spaghetti',
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
-        cost: 130,
-        status: true,
+        cost: 50,
+        unit:"$",
+        rating:1,
         amount:0,
-        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
+        fav:true,
+        address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
         id: '3',
         nameFood: 'Spaghetti',
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
-        cost: 130,
-        status: true,
+        cost: 50,
+        unit:"$",
+        rating:5,
         amount:20,
-        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
+        fav:true,
+        address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
     {
         id: '4',
         nameFood: 'Spaghetti',
         image: 'https://cdn.tgdd.vn/2020/06/CookRecipe/GalleryStep/thanh-pham-114.jpg',
         fromFood: 'Italy',
-        cost: 130,
-        status: true,
+        cost: 50,
+        unit:"$",
+        rating:5,
         amount:30,
-        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
+        fav:true,
+        address: 'Corso Gaetano Scirea, 50, 10151 Torino TO, Italy'
     },
 
 ];
@@ -69,6 +77,7 @@ const renderItemV = ({ item }) => (
         <View style={styles.boxV}>
             <Text style={styles.nameFoodV}>{item.nameFood}</Text>
             <Text style={styles.fromFoodV}>{item.fromFood}</Text>
+            <Text style={styles.cost}>{item.cost}{item.unit}</Text>
             <Text style={styles.address}>
                 <IconAddress 
                     name="place"
@@ -221,6 +230,11 @@ const styles = StyleSheet.create({
         opacity: 0.8,
         marginTop: 4,
     },
+    cost:{
+        color:"#900",
+        fontSize:16,
+        marginTop:4
+    },  
     address:{
         color:"#a5b1c2",
     },
