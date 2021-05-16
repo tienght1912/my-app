@@ -101,7 +101,6 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <ScrollView>
-
                 <View style={styles.header}>
                     <TextInput
                         style={styles.input}
