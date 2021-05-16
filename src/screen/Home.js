@@ -43,8 +43,10 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         width:"100%",
         height:70,
-        backgroundColor:"#a5b1c2",
+        // backgroundColor:"#a5b1c2",
         alignItems:"center",
+        justifyContent:"flex-end",
+        paddingHorizontal:16
     },
     input:{
         borderRadius:15,
@@ -53,10 +55,8 @@ const styles = StyleSheet.create({
         fontSize:8,
         padding:8,
         width:150,
-        alignSelf:"flex-end",
+        marginRight:8
     },
     icon:{
-        alignSelf:"flex-end",
-        backgroundColor:"#fff"
     },
 })
