@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from './src/screen/Home';
+import Settings from './src/screen/Settings';
+import Login from './src/screen/Login';
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <Text style={styles.title}>App.js</Text> */}
-      <Home></Home>
-    </View>
+    <NavigationContainer>
+      
+    </NavigationContainer>
   )
 }
 
