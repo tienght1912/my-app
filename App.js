@@ -3,12 +3,12 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/screen/Home';
-import Settings from './src/screen/Settings';
+import Account from './src/screen/Account';
 import Shopping from './src/screen/Shopping';
 import Favorite from './src/screen/Favorite';
 import IconHome from 'react-native-vector-icons/Entypo';
 import IconShopping from 'react-native-vector-icons/Entypo';
-import IconSettings from 'react-native-vector-icons/Ionicons';
+import IconAccount from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconFavo from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
@@ -49,14 +49,14 @@ function MyTabs() {
         }}
         component={Favorite}/>
       <Tab.Screen
-        name="Settings"
+        name="Account"
         options={{
           tabBarIcon: ({ color }) => (
-            <IconSettings name="settings" size={26} color={color} style={styles.iconTab} />
+            <IconAccount name="account" size={26} color={color} style={styles.iconTab} />
           ),
           title:""
         }}
-        component={Settings} />
+        component={Account} />
     </Tab.Navigator>
   );
 }
