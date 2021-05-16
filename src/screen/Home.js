@@ -8,7 +8,6 @@ import {
     TextInput,
     
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Home() {
     return (
