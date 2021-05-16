@@ -18,7 +18,7 @@ function MyTabs() {
     <Tab.Navigator
       tabBarOptions={{
         activeTintColor: "#fc5c65",
-        inactiveTintColor: "#000",
+        inactiveTintColor: "#4b6584",
       }}
     >
       <Tab.Screen
