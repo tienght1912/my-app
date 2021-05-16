@@ -6,11 +6,8 @@ import Home from './src/screen/Home';
 import Settings from './src/screen/Settings';
 import Shopping from './src/screen/Shopping';
 import Favorite from './src/screen/Favorite';
-import {
-IconHome,
-IconShopping
-}
-  from 'react-native-vector-icons/Entypo';
+import IconHome from 'react-native-vector-icons/Entypo';
+import IconShopping from 'react-native-vector-icons/Entypo';
 import IconSettings from 'react-native-vector-icons/Ionicons';
 import IconFavo from 'react-native-vector-icons/MaterialIcons';
 
@@ -27,17 +24,37 @@ function MyTabs() {
       <Tab.Screen
         name="Home"
         options={{
-          tabBarIcon:({colorHome}) => (
-            <IconHome name="home" size={30} color={colorHome} />
-          )
+          tabBarIcon: ({color}) => (
+            <IconHome name="home" size={26} color={color} style={styles.iconTab} />
+          ),
+          title:""
         }}
         component={Home}/>
+        <Tab.Screen
+        name="Shopping"
+        options={{
+          tabBarIcon: ({color}) => (
+            <IconShopping name="shopping-cart" size={26} color={color} style={styles.iconTab} />
+          ),
+          title:""
+        }}
+        component={Shopping}/>
+        <Tab.Screen
+        name="Favorite"
+        options={{
+          tabBarIcon: ({color}) => (
+            <IconFavo name="favorite" size={26} color={color} style={styles.iconTab} />
+          ),
+          title:""
+        }}
+        component={Favorite}/>
       <Tab.Screen
         name="Settings"
         options={{
-          tabBarIcon: ({ colorSettings }) => (
-            <IconSettings name="settings" size={30} color={colorSettings} />
-          )
+          tabBarIcon: ({ color }) => (
+            <IconSettings name="settings" size={26} color={color} style={styles.iconTab} />
+          ),
+          title:""
         }}
         component={Settings} />
     </Tab.Navigator>
@@ -63,4 +80,8 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#130f40"
   },
+  iconTab:{
+    justifyContent:"center",
+    marginTop:10
+  }
 })
