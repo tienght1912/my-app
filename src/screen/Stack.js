@@ -7,8 +7,8 @@ const Tab = createBottomTabNavigator();
 export default function Stack() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Settings" component={Settings} />
         </Tab.Navigator>
     )
 }
