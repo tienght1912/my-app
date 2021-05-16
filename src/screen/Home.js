@@ -6,11 +6,12 @@ import {
     Image,
     FlatList,
     TextInput,
-
+    ScrollView,
 } from 'react-native';
 import IconNoti from 'react-native-vector-icons/Ionicons';
 import IconFilter from 'react-native-vector-icons/FontAwesome';
-
+import IconAddress from 'react-native-vector-icons/MaterialIcons';
+import Dot from 'react-native-vector-icons/Entypo';
 const DATA = [
     {
         id: '1',
@@ -19,6 +20,8 @@ const DATA = [
         fromFood: 'Italy',
         cost: 130,
         status: true,
+        amount:20,
+        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
     },
     {
         id: '2',
@@ -27,6 +30,8 @@ const DATA = [
         fromFood: 'Italy',
         cost: 130,
         status: true,
+        amount:0,
+        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
     },
     {
         id: '3',
@@ -35,6 +40,8 @@ const DATA = [
         fromFood: 'Italy',
         cost: 130,
         status: true,
+        amount:20,
+        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
     },
     {
         id: '4',
@@ -43,56 +50,89 @@ const DATA = [
         fromFood: 'Italy',
         cost: 130,
         status: true,
+        amount:30,
+        address: '270 Nam Kỳ Khơi Nghĩa, Phường 13, Quận 3, TP.HCM'
     },
 
 ];
 
-const renderItem = ({ item }) => (
-    <View style={styles.item}>
+const renderItemH = ({ item }) => (
+    <View style={styles.itemH}>
         <Image source={{ uri: item.image }} style={styles.imgItem} />
-        <Text style={styles.nameFood}>{item.nameFood}</Text>
-        <Text style={styles.fromFood}>{item.fromFood}</Text>
+        <Text style={styles.nameFoodH}>{item.nameFood}</Text>
+        <Text style={styles.fromFoodH}>{item.fromFood}</Text>
+    </View>
+);
+const renderItemV = ({ item }) => (
+    <View style={styles.itemV}>
+        <Image source={{ uri: item.image }} style={styles.imgItem} />
+        <View style={styles.boxV}>
+            <Text style={styles.nameFoodV}>{item.nameFood}</Text>
+            <Text style={styles.fromFoodV}>{item.fromFood}</Text>
+            <Text style={styles.address}>
+                <IconAddress 
+                    name="place"
+                    size={8}
+                    color="#a5b1c2"
+                    style={styles.iaddress} />
+                {item.address}
+            </Text>
+        </View>
+        <Dot 
+            name="dot-single"
+            size={42}
+            color={item.amount===0?'red':'green'}
+            style={styles.dotstatus}
+        />
     </View>
 );
 export default function Home() {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <TextInput
-                    style={styles.input}
-                    placeholder={'Search favorite food'}
-                    placeholderTextColor={'#778ca3'}
-                />
-                <IconNoti
-                    name="notifications"
-                    size={22}
-                    color="#000"
-                    style={styles.icon}
-                />
-            </View>
-            <View style={styles.article}>
-                <Text style={styles.titleSlider}>Explore our</Text>
-                <Text style={styles.titleSlider}>Delicious Offers</Text>
-                <FlatList
-                    style={styles.flatList}
-                    data={DATA}
-                    renderItem={renderItem}
-                    horizontal
-                // keyExtractor={item => item.id}
-                />
-            </View>
-            <View style={styles.line}></View>
-            <View style={styles.footer}>
-                <View style={styles.nearme}>
-                    <Text>Near Me</Text>
-                    <IconFilter
-                        name="filter"
+            <ScrollView>
+
+                <View style={styles.header}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder={'Search favorite food'}
+                        placeholderTextColor={'#778ca3'}
+                    />
+                    <IconNoti
+                        name="notifications"
                         size={22}
                         color="#000"
                         style={styles.icon}
                     />
                 </View>
-            </View>
+                <View style={styles.article}>
+                    <Text style={styles.titleSlider}>Explore our</Text>
+                    <Text style={styles.titleSlider}>Delicious Offers</Text>
+                    <FlatList
+                        style={styles.flatListH}
+                        data={DATA}
+                        renderItem={renderItemH}
+                        horizontal
+                    // keyExtractor={item => item.id}
+                    />
+                </View>
+                <View style={styles.line}></View>
+                <View style={styles.footer}>
+                    <View style={styles.nearme}>
+                        <Text>Near Me</Text>
+                        <IconFilter
+                            name="filter"
+                            size={22}
+                            color="#000"
+                            style={styles.icon}
+                        />
+                    </View>
+                    <FlatList
+                        style={styles.flatListV}
+                        data={DATA}
+                        renderItem={renderItemV}
+                    />
+                </View>
+            </ScrollView>
         </View>
     )
 }
@@ -117,7 +157,7 @@ const styles = StyleSheet.create({
     input: {
         borderRadius: 15,
         backgroundColor: "#000",
-        height: 36,
+        height: 28,
         fontSize: 12,
         padding: 8,
         width: 240,
@@ -137,41 +177,68 @@ const styles = StyleSheet.create({
         fontWeight: "700",
         marginHorizontal: 12,
     },
-    flatList: {
+    flatListH: {
         marginLeft: 12,
         marginTop: 6
     },
-    item: {
+    itemH: {
         marginRight: 16
     },
-    nameFood: {
+    nameFoodH: {
         fontSize: 18,
         fontWeight: "700",
         color: "#000",
         marginTop: 4,
     },
-    fromFood: {
+    fromFoodH: {
         fontSize: 16,
         color: "#000",
         opacity: 0.8,
         marginTop: 4,
     },
     imgItem: {
-        width: 120,
-        height: 140,
+        width: 100,
+        height: 120,
         borderRadius: 10
+    },
+    itemV: {
+        flexDirection: "row",
+        marginBottom: 12,
+    },
+    boxV: {
+        marginLeft: 12,
+        paddingVertical: 8,
+        width:160
+    },
+    nameFoodV: {
+        fontSize: 18,
+        fontWeight: "700",
+        color: "#000",
+    },
+    fromFoodV: {
+        fontSize: 16,
+        color: "#000",
+        opacity: 0.8,
+        marginTop: 4,
+    },
+    address:{
+        color:"#a5b1c2",
+    },
+    dotstatus:{
+        alignSelf:"flex-end",
+        marginBottom:100
     },
     line: {
         backgroundColor: "#a5b1c2",
         marginHorizontal: 12,
         height: 1
     },
-    footer:{
-        marginHorizontal:12,
-        marginTop:6
+    footer: {
+        marginHorizontal: 12,
+        marginTop: 6
     },
-    nearme:{
-        flexDirection:"row",
-        justifyContent:"space-between"
+    nearme: {
+        flexDirection: "row",
+        justifyContent: "space-between"
     }
 })
