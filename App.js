@@ -4,18 +4,56 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/screen/Home';
 import Settings from './src/screen/Settings';
+import Shopping from './src/screen/Settings';
+import Favorite from './src/screen/Favorite';
+import {
+  IconHome,
+  IconShopping,
+} from 'react-native-vector-icons/Entypo';
+import IconSettings from 'react-native-vector-icons/Ionicons';
+import IconFavo from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: "#fc5c65",
+        inactiveTintColor: "#000",
+      }}
+    >
       <Tab.Screen
         name="Home"
-        options={{tabBarIcon:'./src/asset/editblack.png'}}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <IconHome name="home" size={30} color={color} />
+          ),
+        }}
         component={Home} />
       <Tab.Screen
+        name="Shopping"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <IconShopping name="favorite" size={30} color={color} />
+          ),
+        }}
+        component={Shopping} />
+        <Tab.Screen
+        name="Favorite"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <IconFavo name="shopping-cart" size={30} color={color} />
+          ),
+        }}
+        component={Favorite} />
+      <Tab.Screen
         name="Settings"
+        options={{
+          tabBarIcon: ({ color }) => (
+            <IconSettings name="settings" size={30} color={color} />
+          ),
+        }}
         component={Settings} />
     </Tab.Navigator>
   );
@@ -39,5 +77,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "700",
     color: "#130f40"
-  }
+  },
 })
